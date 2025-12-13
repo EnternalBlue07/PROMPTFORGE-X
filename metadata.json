@@ -1,0 +1,5 @@
+{
+  "name": "PromptForge-X",
+  "description": "An extreme prompt engineering analysis and optimization engine powered by Gemini 2.5 Flash. Dissects, classifies, and reconstructs prompts with professional or 'crazy' critiques.",
+  "requestFramePermissions": []
+}
