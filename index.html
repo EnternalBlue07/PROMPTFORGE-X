@@ -5,22 +5,51 @@
     <link rel="icon" type="image/svg+xml" href="https://vitejs.dev/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PromptForge-X</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            fontFamily: {
+              sans: ['Orbitron', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
             colors: {
               forge: {
-                900: '#0f172a', // Slate 900
-                800: '#1e293b', // Slate 800
-                700: '#334155', // Slate 700
-                accent: '#6366f1', // Indigo 500
-                crazy: '#ef4444', // Red 500
+                950: '#020617',
+                900: '#0f172a',
+                800: '#1e293b',
+                700: '#334155',
+                accent: '#6366f1',
+                crazy: '#ff003c',
+                neonBlue: '#00f0ff',
+                acidGreen: '#ccff00',
               }
             },
             animation: {
-              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'glitch': 'glitch 1s linear infinite',
+              'scan': 'scan 4s linear infinite',
+            },
+            keyframes: {
+              glitch: {
+                '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                '62%': { transform: 'translate(0,0) skew(5deg)' },
+              },
+              scan: {
+                '0%': { backgroundPosition: '0% 0%' },
+                '100%': { backgroundPosition: '0% 100%' },
+              }
+            },
+            boxShadow: {
+              'neon-red': '0 0 5px #ff003c, 0 0 20px #ff003c',
+              'neon-blue': '0 0 5px #00f0ff, 0 0 20px #00f0ff',
             }
           }
         }
@@ -28,23 +57,50 @@
     </script>
     <style>
       body {
-        background-color: #0f172a;
+        background-color: #050505;
         color: #f8fafc;
+        overflow-x: hidden;
       }
+      
+      /* CRT Scanline Effect */
+      .scanlines {
+        background: linear-gradient(
+          to bottom,
+          rgba(255,255,255,0),
+          rgba(255,255,255,0) 50%,
+          rgba(0,0,0,0.2) 50%,
+          rgba(0,0,0,0.2)
+        );
+        background-size: 100% 4px;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.15;
+      }
+
+      /* Crazy Mode Grid Background */
+      .crazy-bg {
+        background-image: 
+          linear-gradient(rgba(255, 0, 60, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 0, 60, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #1e293b; 
+        background: #020617; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #475569; 
-        border-radius: 4px;
+        background: #334155; 
+        border-radius: 0px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #64748b; 
+        background: #475569; 
       }
     </style>
   <script type="importmap">
