@@ -93,9 +93,7 @@ git push
 
 MIT License
 
-<div align="center">
 ⭐ If you like this project, consider starring the repository.
 
 Built with ❤️ for the AI Open Source Community
 
-</div> ```
