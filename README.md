@@ -97,3 +97,16 @@ MIT License
 
 Built with ❤️ for the AI Open Source Community
 
+## 🔁 Loop Engineering
+
+PROMPTFORGE-X includes a bounded prompt-improvement workflow that iterates against explicit acceptance criteria and keeps a report of each attempt.
+
+- Goal and acceptance-criteria inputs
+- Improve → verify → retry workflow
+- Configurable iteration and timeout limits
+- Cancellation and failure reporting
+- Attempt history with criterion-level feedback
+
+See [LOOP_ENGINEERING.md](./LOOP_ENGINEERING.md) for workflow rules, limitations, and verification steps.
+
+> **Important:** The current gate is model-based and does not execute code tests. The existing browser-side Gemini API-key configuration is not suitable for a private production key; use a server-side proxy before production deployment.
