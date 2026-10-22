@@ -17,6 +17,7 @@ import {
 import { analyzePrompt } from './services/geminiService';
 import { AnalysisStatus, PromptAnalysis } from './types';
 import { AnalysisCharts } from './components/AnalysisCharts';
+import { LoopEngineeringPanel } from './components/LoopEngineeringPanel';
 
 const SAMPLE_PROMPT = "Write something about AI";
 
@@ -297,6 +298,9 @@ const App: React.FC = () => {
 
           </div>
         )}
+
+        {/* Bounded prompt-improvement loop; existing analyzer remains unchanged. */}
+        <LoopEngineeringPanel />
       </main>
     </div>
   );
